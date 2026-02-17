@@ -86,6 +86,33 @@ export const events: Event[] = [
     builderCount: 6,
     projectCount: 6,
   },
+  {
+    id: 'ns-shiphaus-feb-2026',
+    chapterId: 'malaysia',
+    title: 'Shiphaus NS #1',
+    date: '2026-02-13T10:00:00',
+    location: 'NS Library',
+    builderCount: 0,
+    projectCount: 0,
+    status: 'upcoming',
+    lumaUrl: 'https://lu.ma/1vaocqic',
+  },
+  {
+    id: 'ny-shiphaus-3-feb-2026',
+    chapterId: 'new-york',
+    title: 'Shiphaus #3',
+    date: '2026-02-22T15:00:00',
+    location: 'Brooklyn, NY',
+    builderCount: 0,
+    projectCount: 0,
+    status: 'upcoming',
+    lumaUrl: 'https://luma.com/7m6wvfq3',
+    hostedBy: {
+      name: 'Asylum.vc',
+      url: 'https://www.asylum.vc/',
+      tagline: 'artists, not assets',
+    },
+  },
 ];
 
 export const projects: Project[] = [
