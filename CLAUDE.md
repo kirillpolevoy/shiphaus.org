@@ -101,3 +101,53 @@ The global `body::before` in `globals.css` handles the grain overlay. Never add 
 - Always use `next/image` with explicit dimensions or `fill`
 - Never reuse the same image on multiple pages -- better to have no image than a recycled one
 - New pages must match the homepage's visual language. Check spacing, border-radius, animation patterns, and component classes before shipping.
+
+## CHI #3 "Who's In The Room" Page
+
+Static attendee directory at `public/chi3/room/index.html`. Deployed to the `shiphaus-chicago` Vercel project at `chicago.shiphaus.org/chi3/room`.
+
+### Deploy process
+
+Same as CHI2 slides -- temp dir with `chi3/room/` contents + `.vercel/project.json`, then `vercel deploy --prod --yes`. See `memory/reference_chi2_deploy.md` for the pattern.
+
+### Adding new guests from Luma CSV
+
+1. User drops a new Luma CSV export in the chat
+2. Parse CSV, filter to `approval_status == "approved"`
+3. Diff against existing `GUESTS` array in `index.html` by name -- find new additions only
+4. For each new guest, enrich:
+   - **Role & company**: Check LinkedIn URL (if provided in CSV) or company email domain. Web search `site:linkedin.com "[name]"` for current title
+   - **Bio**: Write 1 sentence, third person, based on LinkedIn/company info. Factual, no fluff
+   - **Building**: Clean up the CSV's freeform "building" field into a concise phrase
+   - **LinkedIn/GitHub**: Use URLs from CSV if provided. Validate LinkedIn URLs resolve
+5. Download avatar photos:
+   - LinkedIn URL available: Open profile in Chrome, use `read_network_requests` to capture the CDN image URL with auth params, then `curl` to download as `avatars/{slug}.jpg`
+   - No LinkedIn: Try GitHub avatar (`https://github.com/{username}.png`) if GitHub URL provided
+   - Neither: The page falls back to CSS initials automatically
+6. Add new guest objects to the `GUESTS` array in `index.html`
+7. Update the guest count in the header meta line
+8. Re-sort alphabetically by first name (`GUESTS` array is pre-sorted, insert in order)
+9. Deploy
+
+### Guest data schema
+
+```json
+{
+  "name": "string",
+  "role": "string",
+  "company": "string",
+  "bio": "string (1 sentence, third person)",
+  "building": "string (concise phrase)",
+  "shipped": "string or empty",
+  "linkedin": "URL string or null",
+  "github": "URL string or null"
+}
+```
+
+### Avatar slug convention
+
+`slugify(name)` -- lowercase, spaces to hyphens, strip non-alphanumeric except hyphens. Example: "Brian C Brown" → `brian-c-brown.jpg`. File goes in `public/chi3/room/avatars/`.
+
+### Image paths
+
+All image paths use a `BASE` constant resolved from `location.pathname` so they work both locally (`localhost:8787/`) and on Vercel (`/chi3/room/`). JS-generated paths use `${BASE}/avatars/...`, static HTML images use `data-src` attributes resolved on load.

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiphaus Chicago #3 | May 16, 2026</title>
+  <meta name="description" content="Meet the 49 builders joining Shiphaus CHI #3 on May 16, 2026.">
+  <meta property="og:title" content="Shiphaus Chicago #3 | May 16, 2026">
+  <meta property="og:description" content="49 builders. One room. See who's coming to Shiphaus Chicago on May 16.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chicago.shiphaus.org/chi3/room">
+  <meta property="og:image" content="https://chicago.shiphaus.org/chi3/room/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shiphaus Chicago #3 | May 16, 2026">
+  <meta name="twitter:description" content="49 builders. One room. See who's coming to Shiphaus Chicago on May 16.">
+  <meta name="twitter:image" content="https://chicago.shiphaus.org/chi3/room/og-image.png">
+  <link rel="icon" href="https://shiphaus.org/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #FAFAF8;
+      --bg-secondary: #F3F2EE;
+      --bg-tertiary: #EBEAE5;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #7A7A7A;
+      --accent: #FF6B35;
+      --accent-hover: #E85A28;
+      --accent-soft: #FFF0EB;
+      --border-subtle: rgba(26,26,26,0.08);
+      --border-strong: rgba(26,26,26,0.15);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-primary);
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Instrument Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+    }
+
+    /* Grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.02;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    ::selection {
+      background: var(--accent-soft);
+      color: var(--text-primary);
+    }
+
+    /* Header */
+    .header {
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--text-primary);
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,107,53,0.08) 0%, transparent 70%),
+        radial-gradient(circle at 20% 80%, rgba(255,107,53,0.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .header-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.375rem 1rem 0.375rem 0.375rem;
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .header-label {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .header h1 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+      color: white;
+    }
+
+    .header-meta {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 1.125rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .meta-sep {
+      margin: 0 0.25rem;
+    }
+
+    /* Search */
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-primary);
+      padding: 1.5rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-wrap.scrolled {
+      border-bottom-color: var(--border-subtle);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .search-inner {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .search-field {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      background: white;
+      border: 1px solid var(--border-strong);
+      border-radius: 0.75rem;
+      padding: 0.625rem 1rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .search-field:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .search-icon {
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 1rem;
+      border: none;
+      background: transparent;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* Grid */
+    .grid-wrap {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.75rem 1rem 4rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      column-gap: 1.25rem;
+      row-gap: 0;
+    }
+
+    @media (min-width: 640px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Card */
+    .card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 4;
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid transparent;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, border-left-color 0.3s ease;
+    }
+
+    .card.visible:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-strong);
+      border-left-color: var(--accent);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .avatar-frame {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border-subtle);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: var(--bg-secondary);
+    }
+
+    .initials {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      color: white;
+      user-select: none;
+    }
+
+    .card-identity {
+      min-width: 0;
+    }
+
+    .card-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+
+    .card-role {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .card-building {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 0.625rem;
+    }
+
+    .card-field-label {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.1875rem;
+    }
+
+    .card-bio {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 0.375rem;
+      align-self: end;
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .card-links:empty {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .card-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .card-links a:hover {
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    .card-links svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* Empty state */
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .empty-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .empty-title {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .empty-sub {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-primary);
+      text-align: center;
+      padding: 2.5rem 1rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(255,107,53,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .footer-logo {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .footer-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: white;
+    }
+
+    .footer-tagline {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .footer-link {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Scroll entrance */
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card.visible:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 640px) {
+      .header { padding: 5rem 0 3.5rem; }
+      .grid-wrap { padding: 0.75rem 1.5rem 5rem; }
+      .search-inner { padding: 0 1.5rem; }
+      .header-inner { padding: 0 1.5rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-wrap { padding: 0.75rem 2rem 5rem; }
+      .search-inner { padding: 0 2rem; }
+      .header-inner { padding: 0 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-top">
+        <img data-src="orange_logo.png" alt="Shiphaus" class="logo">
+        <span class="header-label">Who's In The Room</span>
+      </div>
+      <h1>Shiphaus<br>Chicago #3</h1>
+      <p class="header-meta">May 16, 2026 <span class="meta-sep">·</span> <span id="guest-count">49 builders</span></p>
+    </div>
+  </header>
+
+  <div class="search-wrap" id="search-wrap">
+    <div class="search-inner">
+      <div class="search-field">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-input" id="search" placeholder="Who are you looking for?" autocomplete="off">
+        <span class="search-count" id="search-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <img data-src="orange_logo.png" alt="Shiphaus" class="footer-logo">
+      <span class="footer-name">Shiphaus Chicago #3</span>
+    </div>
+    <p class="footer-tagline">Start at 10. Ship by 5.</p>
+    <a href="https://shiphaus.org" class="footer-link" target="_blank" rel="noopener noreferrer">shiphaus.org</a>
+  </footer>
+
+  <script>
+    // Resolve base path so images work both locally and on Vercel
+    const BASE = (() => {
+      const p = location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      return p || '.';
+    })();
+
+    // Resolve logo paths
+    document.querySelectorAll('[data-src]').forEach(img => {
+      img.src = BASE + '/' + img.dataset.src;
+    });
+
+    const GUESTS = [
+      {"name": "Abigail Hartzell", "role": "Senior Staff Engineer", "company": "Invenergy", "bio": "Senior staff engineer at Invenergy working on renewable energy, prior experience in gene therapies at Prime Medicine.", "building": "Meaningful products for individual wellbeing", "shipped": "Sidequest at Chicago Startup Weekend", "linkedin": "https://linkedin.com/in/abigail-hartzell", "github": null},
+      {"name": "Adam Federman", "role": "Senior Manager", "company": "Accenture", "bio": "Senior manager at Accenture leading Chicago AI Office Hours and M365 Copilot enablement.", "building": "Tools and approaches to help others learn AI", "shipped": "", "linkedin": "https://linkedin.com/in/adamfederman", "github": null},
+      {"name": "Akangkshya Pathak", "role": "Product Manager, AI", "company": "Seedpod Cyber", "bio": "AI product manager and Northwestern MSAI grad, previously ML engineer at Northwestern Memorial Hospital.", "building": "Side project ideas from the notes app", "shipped": "Suite of AI products for startup", "linkedin": "https://linkedin.com/in/akangkshya", "github": "https://github.com/AkaPathak"},
+      {"name": "Andrii Ponomarenko", "role": "Builder", "company": "", "bio": "Builder joining the Shiphaus community.", "building": "Exploring the community", "shipped": "", "linkedin": null, "github": null},
+      {"name": "Arielle Johncox", "role": "Head of Marketing & CX", "company": "Balsamiq", "bio": "Marketing leader at Balsamiq and Techstars mentor, previously ran Kimbar consulting for early-stage founders.", "building": "Personal website rebuild with AI avatar resume", "shipped": "", "linkedin": "https://linkedin.com/in/ariellejohncox", "github": "https://github.com/ariellekimbar"},
+      {"name": "Arjun Dutt", "role": "Co-Founder & CEO", "company": "BrandStak AI", "bio": "Co-Founder and CEO of BrandStak AI, previously CEO of Semantify (acquired) and SVP at Purchasing Platform.", "building": "Product development for BrandStak AI", "shipped": "Internal tools for sales enablement", "linkedin": "https://linkedin.com/in/arjundutt", "github": "https://github.com/arjun-dutt"},
+      {"name": "Arushi Malhotra", "role": "Founder", "company": "Code Social", "bio": "Founder of Code Social, a 10,000-member learning community, DePaul Presidential Scholar with hackathon wins at Google DeepMind.", "building": "AI agents and Claude features like co-work", "shipped": "Code Social community with programs to break into tech", "linkedin": "https://linkedin.com/in/malhotra-arushi", "github": "https://github.com/arushi2610"},
+      {"name": "Brandon Loyfman", "role": "Founding Account Executive", "company": "Auquan", "bio": "Founding account executive at Auquan, previously at AlphaSense and Premialab, focused on AI-driven financial intelligence.", "building": "AI-powered property management communication platform", "shipped": "A dating app", "linkedin": "https://linkedin.com/in/bloyfman", "github": null},
+      {"name": "Brian C Brown", "role": "Resident Solutions Architect", "company": "Computomic", "bio": "Solutions architect at Computomic, Northwestern alum and data science educator who teaches Python for free.", "building": "AI-powered solution scaffolding and code generation", "shipped": "IRS tax-processing simulator", "linkedin": "https://linkedin.com/in/brian-c-brown", "github": "https://github.com/brian-c-brown"},
+      {"name": "Brian Johncox", "role": "Software Engineer", "company": "Vivun", "bio": "Software engineer at Vivun building AI-powered presales tools, side-projects in computer vision.", "building": "AI avatar resume or meal planning app", "shipped": "MarioKart map tracking tool with computer vision", "linkedin": "https://linkedin.com/in/brian-johncox", "github": "https://github.com/Decoder22"},
+      {"name": "Carl Beien", "role": "Product Leader", "company": "Harbor Health", "bio": "Product leader at Harbor Health, previously built health-tech products at CareHive Health and Higi.", "building": "App-blocking app", "shipped": "CBT app", "linkedin": "https://linkedin.com/in/cbeien", "github": "https://github.com/Cbeien"},
+      {"name": "Carlos A Zapata", "role": "Founder & CEO", "company": "StudentFlow", "bio": "Founder and CEO of StudentFlow, a B2B SaaS platform streamlining school operations and parent communication.", "building": "Agentic payment processing system", "shipped": "StudentFlow", "linkedin": "https://linkedin.com/in/carlos-zapata7", "github": "https://github.com/czapata08"},
+      {"name": "Charlotte Trecartin", "role": "Founder & CEO", "company": "CharCharms", "bio": "Forbes 30 Under 30 founder of CharCharms, the water bottle accessories brand featured on Shark Tank and sold at Target.", "building": "AI tool for product design calendar or meeting scheduling", "shipped": "", "linkedin": "https://linkedin.com/in/charlotte-trecartin", "github": null},
+      {"name": "David Bowen", "role": "Of Counsel", "company": "Krieg DeVault", "bio": "Financial services attorney specializing in regulatory compliance, fintech, and cybersecurity.", "building": "AI-powered legal research and practice tools", "shipped": "", "linkedin": "https://linkedin.com/in/davidbkriegdevault", "github": "https://github.com/LoganX1973"},
+      {"name": "David Finkelstein", "role": "Founder", "company": "DWF Ventures LLC", "bio": "Founder of DWF Ventures, building AI-powered marketing tools.", "building": "AI marketing tools", "shipped": "", "linkedin": "https://linkedin.com/in/dfinkelstein", "github": null},
+      {"name": "Dhimitra Poci", "role": "Sr. Assumption Governance Analyst", "company": "CVS Health", "bio": "Analyst at CVS Health and DePaul University grad, previously worked on ReRoot startup.", "building": "Coding AI for a startup", "shipped": "ReRoot", "linkedin": "https://linkedin.com/in/dimitra-potsi", "github": null},
+      {"name": "Dominique Alexander Carter", "role": "Senior Consultant", "company": "Deloitte", "bio": "Senior consultant at Deloitte specializing in contract lifecycle management and e-signature platforms.", "building": "Learning to build real-world AI tools", "shipped": "", "linkedin": "https://linkedin.com/in/dominiqueacarter", "github": null},
+      {"name": "Dong Chiu", "role": "Mobile Developer", "company": "FaceCool", "bio": "Mobile developer at FaceCool specializing in computer graphics and vision, builds with ARKit and SwiftUI.", "building": "AI-powered information diet for deeper content consumption", "shipped": "Shadertoy gallery app for iOS", "linkedin": "https://linkedin.com/in/dong-qiu-chiu-31b9a754", "github": "https://github.com/chenqiu1024"},
+      {"name": "Edward Lichstein", "role": "Co-Founder", "company": "Feedback Clarity", "bio": "Serial entrepreneur behind Autoplicity and Feedback Clarity, deep experience in e-commerce and data-driven marketing.", "building": "CLI productivity and product management", "shipped": "EA Slack agent", "linkedin": "https://linkedin.com/in/edwardlichstein", "github": "https://github.com/feedbackclarity"},
+      {"name": "Grant Cavanaugh", "role": "Founder", "company": "Authors of Boston", "bio": "Founder of Authors of Boston, a cash forecasting tool for early-stage companies, with a background in finance.", "building": "Business model comparison tool", "shipped": "Authors of Boston", "linkedin": "https://linkedin.com/in/grant-cavanaugh", "github": "https://github.com/gcavanaugh"},
+      {"name": "Igor Sulpovar", "role": "Technical Lead", "company": "PromptOwl", "bio": "Technical lead at PromptOwl, previously software engineer at ExodusPoint and Cove Markets (acquired by Robinhood).", "building": "Self-improvement and productivity with AI", "shipped": "Claude conversation search", "linkedin": "https://linkedin.com/in/igor-sulpovar-5367586", "github": "https://github.com/sulpovar"},
+      {"name": "Irina Cantez", "role": "Director, Global Fulfillment", "company": "Baxter International", "bio": "Supply chain leader at Baxter International, previously at Deloitte, also building Affini, an interpersonal discovery platform.", "building": "Redesigning Affini for clearer market fit", "shipped": "", "linkedin": "https://linkedin.com/in/irina-cantez-42097559", "github": null},
+      {"name": "Jared Brogni", "role": "Senior Advisor", "company": "Vouch Insurance", "bio": "Senior advisor at Vouch Insurance focused on crypto-native and blockchain-first growth, DePaul MBA.", "building": "Agent deployment and workplace efficiency", "shipped": "Poker trainer", "linkedin": "https://linkedin.com/in/jared-brogni-mba", "github": null},
+      {"name": "Jeff Montgomery", "role": "Co-Founder & Principal Scientist", "company": "ReAx Biotechnologies", "bio": "Chemical biologist and co-founder of ReAx Biotechnologies, a UChicago spinout applying chemical proteomics to drug discovery.", "building": "Using Claude for biotech R&D", "shipped": "Preclinical drug for blood cancer", "linkedin": "https://linkedin.com/in/jmontbio", "github": null},
+      {"name": "Jeff Sanchez", "role": "Trader & Writer", "company": "Hitting the Bid", "bio": "Retail trader and writer behind Hitting the Bid, a stock market newsletter for beginners.", "building": "Claude Code proficiency and cleaner code", "shipped": "HOA Basecamp", "linkedin": "https://linkedin.com/in/jeffsanchez-htb", "github": "https://github.com/jeffsanchez987"},
+      {"name": "Jorge Viramontes", "role": "Full-Stack Engineer", "company": "Independent", "bio": "Next.js full-stack engineer and Techqueria Chicago Chapter Director who builds community tools.", "building": "Features for events directory", "shipped": "The PDD Directory", "linkedin": "https://linkedin.com/in/jorge-viramontes", "github": "https://github.com/jvmontes"},
+      {"name": "Jurgen Zach", "role": "Managing Member", "company": "Percolation Consulting", "bio": "Runs Percolation Consulting, advises technology ventures on non-dilutive SBIR funding.", "building": "Private dog breeding match site", "shipped": "", "linkedin": null, "github": null},
+      {"name": "Landon Campbell", "role": "Chicago Seed GM", "company": "Drive Capital", "bio": "Runs Drive Capital’s Chicago seed fund and publishes Landon’s Loop newsletter covering Chicago’s innovation economy.", "building": "AI", "shipped": "OneTwoLoop.com", "linkedin": "https://linkedin.com/in/landon20s", "github": "https://github.com/chicagolandon"},
+      {"name": "Luke Pillarella", "role": "Co-Founder", "company": "Atlantis Capital", "bio": "Co-Founder of Atlantis Capital, an early-stage VC fund investing in fourth industrial revolution startups.", "building": "Agentizing Atlantis Capital with a unified AI brain", "shipped": "", "linkedin": "https://linkedin.com/in/luke-pillarella", "github": "https://github.com/lj-pill"},
+      {"name": "Madeline Parrish", "role": "Founder & CEO", "company": "FORSE", "bio": "Founder and CEO of FORSE, inventor of physics-first causal AI for cardiovascular care, UIC biomedical engineer.", "building": "Physics-first AI and collaborative problem-solving", "shipped": "First in-silico tilt table test", "linkedin": "https://linkedin.com/in/ghknv67", "github": null},
+      {"name": "Marquis Davis", "role": "Founder & Enterprise Director", "company": "Urban Array", "bio": "Social entrepreneur and founder of Urban Array, using technology to drive economic ownership in divested Chicago neighborhoods.", "building": "Exploring new AI applications", "shipped": "", "linkedin": "https://linkedin.com/in/marquisdavis", "github": "https://github.com/marquisdavis"},
+      {"name": "Masha Chernyak", "role": "AVP and Actuary", "company": "Zurich North America", "bio": "Actuary at Zurich North America with a background in insurance and risk analysis, UIUC graduate.", "building": "AI applications in insurance", "shipped": "", "linkedin": "https://linkedin.com/in/mashachernyak", "github": null},
+      {"name": "Masha Shtraym", "role": "Art Director", "company": "Marfa Cabinets", "bio": "Art director at Marfa Cabinets, a Chicago-area manufacturer of high-end kitchen and bath cabinetry.", "building": "AI-assisted tools for art workflow", "shipped": "", "linkedin": "https://linkedin.com/in/masha-shtraym-a26b8746", "github": null},
+      {"name": "Michael Maurice Bassali", "role": "Owner", "company": "Rb2 Real Estate", "bio": "Real estate professional and rare books dealer based in Chicago.", "building": "Investment research app", "shipped": "Chicago Rare Books & Engravings", "linkedin": "https://linkedin.com/in/michael-maurice-bassali-85537526", "github": "https://github.com/michaelb7a"},
+      {"name": "Mike O’Sullivan", "role": "Lead Product Designer", "company": "Thrivent", "bio": "Lead product designer at Thrivent with 20+ years in UX, exploring AI-assisted design workflows.", "building": "Sharpening AI skills for design", "shipped": "", "linkedin": "https://linkedin.com/in/mcosullivan", "github": null},
+      {"name": "Noor Aftab", "role": "Global Program Lead", "company": "Amazon Web Services", "bio": "Data and cloud strategist at AWS leading the S3 Strategic Customer Program, 2x founder and IBM Champion.", "building": "AI learning app", "shipped": "Ticket Copilot for Product Managers", "linkedin": "https://linkedin.com/in/nooraftab", "github": null},
+      {"name": "Omoyeni Femi-Saliu", "role": "Student", "company": "University of Illinois Urbana-Champaign", "bio": "CS and information science student at UIUC with internship experience at Illinois Applied Research Institute and Amazon.", "building": "Learning to build effectively with AI", "shipped": "A playlist creator", "linkedin": "https://linkedin.com/in/yeni2025", "github": "https://github.com/yenisaliu"},
+      {"name": "Pedro Faria", "role": "Computational Biologist", "company": "Argonne National Laboratory", "bio": "Computational biologist at Argonne National Laboratory with a PhD in Bioengineering, builds gaming tools on the side.", "building": "Companion app for gaming website", "shipped": "Kingshot Optimizer", "linkedin": "https://linkedin.com/in/josé-p-faria-40834818", "github": null},
+      {"name": "Rakshith Chatra", "role": "Growth Product Manager", "company": "Screencastify", "bio": "Growth product manager at Screencastify and Kellogg MBA, focused on product-led growth.", "building": "Building a product from scratch", "shipped": "SixthSense Data and AI Observability", "linkedin": "https://linkedin.com/in/rakshithchatra", "github": null},
+      {"name": "Rosemary Clark", "role": "Founder", "company": "Fynch", "bio": "Founder of Fynch, a B2B inventory management platform, with a background in management consulting.", "building": "Inventory management platform for Fynch", "shipped": "", "linkedin": "https://linkedin.com/in/rosemaryclark", "github": null},
+      {"name": "Sheik Astin Simmons Bey", "role": "President", "company": "Bey Group International", "bio": "Entrepreneur, investor, and emerging fund manager with 8 exits in sports, media, and entertainment.", "building": "Autonomous OS for fund operations", "shipped": "", "linkedin": "https://linkedin.com/in/brothersimmonsbey", "github": null},
+      {"name": "Steven Brandt", "role": "CEO & Co-Founder", "company": "CubeNexus", "bio": "CEO and co-founder of CubeNexus, a Techstars-backed spatial data intelligence platform; former U.S. Air Force officer.", "building": "CubeNexus product development and personal efficiency", "shipped": "Email distribution system for CubeNexus", "linkedin": "https://linkedin.com/in/slb2026", "github": "https://github.com/StevenB001"},
+      {"name": "Taylor Bauldwin", "role": "Founder", "company": "Rooted Ventures", "bio": "Founded Rooted Ventures to invest in Black and minority-owned CPG and foodtech startups.", "building": "Landing page for app", "shipped": "", "linkedin": "https://linkedin.com/in/taylor-bauldwin-a058baa4", "github": null},
+      {"name": "Teya Ridgeway", "role": "Account Manager", "company": "Instacart", "bio": "Account manager at Instacart with a background in advertising at Pinterest and Energy BBDO.", "building": "Learning how people use Claude across different workflows", "shipped": "", "linkedin": "https://linkedin.com/in/teya-ridgeway-00218018b", "github": null},
+      {"name": "Tina Lopez", "role": "Founder", "company": "Lopez Holdings LLC", "bio": "Content marketing strategist who helps creators build automated systems for lead generation and revenue.", "building": "Learning Claude Code", "shipped": "Voice-memo-to-content marketing engine", "linkedin": "https://linkedin.com/in/tinaalopez", "github": null},
+      {"name": "Tony Morales", "role": "Founder & AR Developer", "company": "1984 LLC", "bio": "Spatial computing developer building visionOS and ARKit experiences for startups to Fortune 500 brands.", "building": "Open-source visionOS Swift package", "shipped": "", "linkedin": "https://linkedin.com/in/atmorales0", "github": "https://github.com/robomex"},
+      {"name": "Vera Ermolinskiy", "role": "Digital Marketing & Transformation Lead", "company": "Accenture", "bio": "Digital marketing executive at Accenture leading transformation initiatives for clients like State Farm, AT&T, and Allstate.", "building": "Exploring AI for ideation and product building", "shipped": "", "linkedin": "https://linkedin.com/in/verabelenky", "github": null},
+      {"name": "Yana Leytman", "role": "Director of Product Design", "company": "ShipBob", "bio": "Product design leader at ShipBob, previously designed enterprise systems at Accenture and Kirkland & Ellis.", "building": "Personal app", "shipped": "", "linkedin": "https://linkedin.com/in/Yleytman", "github": null},
+      {"name": "Yasmeen Bano", "role": "Chief Financial Officer", "company": "APEX Companies", "bio": "CFO at APEX Companies with a Booth MBA, previously held finance leadership roles at UL Solutions, Amcor, and ArcelorMittal.", "building": "Finance function automation from a CFO perspective", "shipped": "", "linkedin": null, "github": null}
+    ];
+
+    // Avatar color palette (warm, accessible)
+    const COLORS = [
+      '#E8927C','#7CAABD','#9DB87C','#C49BDB',
+      '#D4A76A','#7CC5C0','#D47C9B','#8E9FD4',
+      '#C7B46C','#6CBAA7','#C48484','#8ABDE0',
+      '#B8A0D4','#D4976C','#7CB89D','#C4747C'
+    ];
+
+    function slugify(name) {
+      return name.toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    }
+
+    function getInitials(name) {
+      const parts = name.split(/\s+/);
+      if (parts.length === 1) return parts[0][0].toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    function getColor(name) {
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      return COLORS[Math.abs(hash) % COLORS.length];
+    }
+
+    function linkedinIcon() {
+      return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+    }
+
+    function githubIcon() {
+      return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>';
+    }
+
+    function renderCard(guest, index) {
+      const slug = slugify(guest.name);
+      const initials = getInitials(guest.name);
+      const color = getColor(guest.name);
+      const delay = Math.min(index * 0.03, 0.6);
+
+      const roleCompany = guest.company
+        ? `${guest.role} @ ${guest.company}`
+        : guest.role;
+
+      let linksInner = '';
+      if (guest.linkedin) {
+        linksInner += `<a href="${guest.linkedin}" target="_blank" rel="noopener noreferrer" title="LinkedIn">${linkedinIcon()}</a>`;
+      }
+      if (guest.github) {
+        linksInner += `<a href="${guest.github}" target="_blank" rel="noopener noreferrer" title="GitHub">${githubIcon()}</a>`;
+      }
+
+      return `
+        <div class="card" data-search="${esc((guest.name + ' ' + guest.role + ' ' + guest.company + ' ' + guest.bio + ' ' + guest.building).toLowerCase())}">
+          <div class="card-header">
+            <div class="avatar-frame">
+              <img
+                class="avatar"
+                src="${BASE}/avatars/${slug}.jpg"
+                alt="${esc(guest.name)}"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                loading="lazy"
+              >
+              <div class="initials" style="display:none;background:${color}">${initials}</div>
+            </div>
+            <div class="card-identity">
+              <div class="card-name">${esc(guest.name)}</div>
+              <div class="card-role">${esc(roleCompany)}</div>
+            </div>
+          </div>
+          <div class="card-building">${esc(guest.building)}</div>
+          <div class="card-context">
+            <div class="card-field-label">Background</div>
+            <div class="card-bio">${esc(guest.bio)}</div>
+          </div>
+          <div class="card-links">${linksInner}</div>
+        </div>
+      `;
+    }
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str;
+      return d.innerHTML;
+    }
+
+    // Alphabetical by first name
+    GUESTS.sort((a, b) => a.name.localeCompare(b.name));
+
+    // Initial render
+    const grid = document.getElementById('grid');
+    grid.innerHTML = GUESTS.map((g, i) => renderCard(g, i)).join('');
+
+    // Scroll-triggered card entrance
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          // Stagger within each row of 3
+          const visibleCards = [...grid.querySelectorAll('.card.visible')].length;
+          const col = visibleCards % 3;
+          card.style.transitionDelay = `${col * 0.08}s`;
+          card.classList.add('visible');
+          cardObserver.unobserve(card);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    grid.querySelectorAll('.card').forEach(card => cardObserver.observe(card));
+
+    // Search
+    const searchInput = document.getElementById('search');
+    const searchCount = document.getElementById('search-count');
+    const guestCount = document.getElementById('guest-count');
+    let debounceTimer;
+
+    searchInput.addEventListener('input', function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(filterCards, 150);
+    });
+
+    function filterCards() {
+      const q = searchInput.value.toLowerCase().trim();
+      const cards = grid.querySelectorAll('.card');
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const match = !q || card.dataset.search.includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) {
+          // Ensure visible cards are shown
+          card.classList.add('visible');
+          card.style.transitionDelay = `${(visible % 3) * 0.05}s`;
+          visible++;
+        }
+      });
+
+      if (q) {
+        searchCount.textContent = visible + ' of ' + GUESTS.length;
+        guestCount.textContent = visible + ' match' + (visible !== 1 ? 'es' : '');
+      } else {
+        searchCount.textContent = '';
+        guestCount.textContent = GUESTS.length + ' builders';
+      }
+
+      // Show empty state
+      const existing = grid.querySelector('.empty');
+      if (existing) existing.remove();
+      if (visible === 0 && q) {
+        grid.innerHTML += `<div class="empty">
+          <div class="empty-icon">&#x1f50d;</div>
+          <div class="empty-title">No builders match "${esc(q)}"</div>
+          <div class="empty-sub">Try a different name, company, or project.</div>
+        </div>`;
+      }
+    }
+
+    // Sticky search shadow
+    const searchWrap = document.getElementById('search-wrap');
+    const observer = new IntersectionObserver(
+      ([e]) => searchWrap.classList.toggle('scrolled', !e.isIntersecting),
+      { threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+    );
+    observer.observe(searchWrap);
+
+    // Keyboard shortcut: focus search on /
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        filterCards();
+        searchInput.blur();
+      }
+    });
+  </script>
+</body>
+</html>
