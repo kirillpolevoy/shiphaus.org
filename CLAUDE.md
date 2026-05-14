@@ -18,6 +18,13 @@ All user-facing copy should be reviewed before shipping. Run `/copy-doctor` on a
 - No gatekeeping language -- Shiphaus is open to anyone who wants to build, not just experienced devs
 - Specific beats vague -- "14 builders" not "many builders"
 
+## Git & Deployment
+
+- `main` is connected to Dylan's Vercel account (`shiphaus` org). Pushing directly triggers a full Next.js build on his account.
+- Route changes through PRs from `kirillpolevoy/shiphaus.org` fork, not direct pushes to `shiphaus/shiphaus.org`.
+- Static sub-sites (`chi2/`, `chi3/room/`) deploy separately to the `shiphaus-chicago` Vercel project via temp-dir deploys — these do NOT go through the main Next.js build.
+- When the user provides a link (Luma event, LinkedIn profile, GitHub repo), extract all needed data from it directly. Do not ask the user to supply dates, names, or details that are available in the link.
+
 ## Architecture
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full architecture reference: routes, API, data layer, Redis key schema, auth flow, and how to add features. Read it before making structural changes.
