@@ -122,6 +122,7 @@ Same as CHI2 slides -- temp dir with `chi3/room/` contents + `.vercel/project.js
    - **LinkedIn/GitHub**: Use URLs from CSV if provided. Validate LinkedIn URLs resolve
 5. Download avatar photos:
    - LinkedIn URL available: Open profile in Chrome, use `read_network_requests` to capture the CDN image URL with auth params, then `curl` to download as `avatars/{slug}.jpg`
+   - **Validation**: After downloading, `Read` the saved JPG file to visually confirm it matches the person's LinkedIn profile photo. LinkedIn pages load many profile photos (sidebar suggestions, mutual connections) and `read_network_requests` can capture the wrong one. If the face doesn't match, use `javascript_tool` to find the correct `img[src*="profile-displayphoto"]` element (look for the one with `naturalHeight > 200` or `alt` containing the person's name), extract its `src` via `document.title = img.src`, and re-download.
    - No LinkedIn: Try GitHub avatar (`https://github.com/{username}.png`) if GitHub URL provided
    - Neither: The page falls back to CSS initials automatically
 6. Add new guest objects to the `GUESTS` array in `index.html`
