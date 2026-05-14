@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Shiphaus Chicago #3 | May 16, 2026">
   <meta name="twitter:description" content="53 builders. One room. See who's coming to Shiphaus Chicago on May 16.">
   <meta name="twitter:image" content="https://chicago.shiphaus.org/chi3/room/og-image.png">
-  <link rel="icon" href="https://shiphaus.org/favicon.ico">
+  <link rel="icon" type="image/png" data-href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -526,9 +526,12 @@
       return p || '.';
     })();
 
-    // Resolve logo paths
+    // Resolve asset paths (logos + favicon)
     document.querySelectorAll('[data-src]').forEach(img => {
       img.src = BASE + '/' + img.dataset.src;
+    });
+    document.querySelectorAll('[data-href]').forEach(el => {
+      el.href = BASE + '/' + el.dataset.href;
     });
 
     const GUESTS = [
